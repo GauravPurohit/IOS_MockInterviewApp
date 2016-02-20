@@ -73,7 +73,7 @@ class TryVideoController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         print("Image picker has been cancelled")
-        self.dismissViewControllerAnimated(true, completion: {})
+        picker.dismissViewControllerAnimated(true, completion: {})
         
         
        

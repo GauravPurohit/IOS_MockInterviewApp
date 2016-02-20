@@ -25,11 +25,56 @@ class SecondViewController: UIViewController {
     }
     
     @IBAction func CreateAccount(sender: AnyObject) {
-    }
-
-    @IBAction func CandidateLoginButton(sender: AnyObject) {
+       
     }
     
+    @IBAction func LoginButton(sender: AnyObject) {
+        
+        let userName = Username.text
+        let passWord = Password.text
+        
+        let userNameStored = NSUserDefaults.standardUserDefaults().stringForKey("userName")
+        
+        let passWordStored = NSUserDefaults.standardUserDefaults().stringForKey("passWord")
+        
+        if(userNameStored==userName)
+        {
+            if(passWordStored==passWord)
+            {
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isUserLoggedIn")
+                NSUserDefaults.standardUserDefaults().synchronize()
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+                
+            else
+            {
+                displayAlertMessage("Login and/or Password combination do not match our records, please try again");
+                return;
+            }
+        }
+        else
+        {
+            displayAlertMessage("Login and/or Password combination do not match our records, please try again");
+            return;
+        }
+
+    }
+    
+
+    
+    
+    
+    func displayAlertMessage(userMessage:String)
+    {
+        var myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: UIAlertControllerStyle.Alert);
+        
+        let okAction = UIAlertAction(title:"OK", style: UIAlertActionStyle.Default, handler: nil)
+        
+        myAlert.addAction(okAction);
+        self.presentViewController(myAlert, animated: true, completion: nil)
+        
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
