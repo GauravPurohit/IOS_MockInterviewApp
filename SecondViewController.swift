@@ -33,31 +33,90 @@ class SecondViewController: UIViewController {
         let userName = Username.text
         let passWord = Password.text
         
-        let userNameStored = NSUserDefaults.standardUserDefaults().stringForKey("userName")
+       // let userNameStored = NSUserDefaults.standardUserDefaults().stringForKey("userName")
+      //  let passWordStored = NSUserDefaults.standardUserDefaults().stringForKey("passWord")
         
-        let passWordStored = NSUserDefaults.standardUserDefaults().stringForKey("passWord")
-        
-        if(userNameStored==userName)
+        if(userName!.isEmpty || passWord!.isEmpty)
         {
-            if(passWordStored==passWord)
-            {
-                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isUserLoggedIn")
-                NSUserDefaults.standardUserDefaults().synchronize()
-                self.dismissViewControllerAnimated(true, completion: nil)
-            }
-                
-            else
-            {
-                displayAlertMessage("Login and/or Password combination do not match our records, please try again");
-                return;
-            }
-        }
-        else
-        {
-            displayAlertMessage("Login and/or Password combination do not match our records, please try again");
+            displayAlertMessage("Username and/or Password do not match our records, please try again!");
             return;
         }
-
+        
+        let myUrl = NSURL(string: "http://localhost:8888/UserLogin.php");
+        let request = NSMutableURLRequest(URL: myUrl!)
+        request.HTTPMethod = "POST"
+        
+        let postString = "userName=\(userName!)&passWord=\(passWord!)"
+        print (postString)
+        
+        
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)!
+        print("request: \(request.HTTPBody)")
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request){
+            data,response,error in
+            
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+            
+            print("response: \(response)")
+            print("data: \(data!)")
+            let string1 = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print(string1)
+            
+            do {
+                
+                var json = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.AllowFragments) as? NSDictionary
+                
+                print("json: \(json)")
+                
+                if let parseJSON = json {
+                    var resultValue = parseJSON["status"] as? String
+                    print("result\(resultValue)")
+                    
+                    var messageToDisplay:String = parseJSON["message"] as! String!
+                    
+                 var isUserLoggedin:Bool = false;
+                    if(resultValue==("Success"))
+                    {
+                        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isUserLoggedIn")
+                        NSUserDefaults.standardUserDefaults().synchronize()
+                       // self.dismissViewControllerAnimated(true, completion: nil)
+                        isUserLoggedin = true
+                    
+                        NSOperationQueue.mainQueue().addOperationWithBlock {
+                            
+                       self.performSegueWithIdentifier("LoggedInCandidateToVideoView", sender: nil)
+                         
+                        }
+                        
+                    }
+                    
+                    
+                    
+                    else
+                    {
+                        messageToDisplay = parseJSON["message"] as! String!
+                        dispatch_async(dispatch_get_main_queue(), {
+                        self.displayAlertMessage(messageToDisplay)
+                        });
+                        
+                        return;
+                        
+                    }
+                    
+                    
+                }
+                
+            }
+            catch {
+                print("A JSON parsing error occurred, here are the details:\n \(error)")
+            }
+        }
+        task.resume()
+        
     }
     
 
@@ -71,10 +130,12 @@ class SecondViewController: UIViewController {
         let okAction = UIAlertAction(title:"OK", style: UIAlertActionStyle.Default, handler: nil)
         
         myAlert.addAction(okAction);
-        self.presentViewController(myAlert, animated: true, completion: nil)
+        presentViewController(myAlert, animated: true, completion: nil)
         
     }
 
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
