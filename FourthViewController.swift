@@ -50,7 +50,8 @@ class FourthViewController: UIViewController,UIPickerViewDataSource, UIPickerVie
      //   NSUserDefaults.standardUserDefaults().setObject(passWord, forKey: "passWord")
      //   NSUserDefaults.standardUserDefaults().synchronize()
         
-        let myUrl = NSURL(string: "http://localhost:8888/userRegister.php");
+        //let myUrl = NSURL(string: "http://localhost:8888/userRegister.php");
+        let myUrl = NSURL(string: "http://gauravpurohit.co.nf/loginRegister/UserRegisterServer.php");
         let request = NSMutableURLRequest(URL: myUrl!)
         request.HTTPMethod = "POST"
         
@@ -89,22 +90,31 @@ class FourthViewController: UIViewController,UIPickerViewDataSource, UIPickerVie
                 
                 var messageToDisplay:String = parseJSON["message"] as! String!
                 
-                if(!isUserRegistered)
+                if(resultValue=="error")
                 {
+                    NSOperationQueue.mainQueue().addOperationWithBlock {
                     messageToDisplay = parseJSON["message"] as! String!
-                    dispatch_async(dispatch_get_main_queue(), {
                     self.displayAlertMessage(messageToDisplay)
-                         });
+                    }
+                    
                    
                         
                 }
                 else
                 {
+                    NSOperationQueue.mainQueue().addOperationWithBlock {
+                    self.displayAlertMessage(messageToDisplay)
+                    }
                     dispatch_async(dispatch_get_main_queue(), {
                     self.displayAlertMessage(messageToDisplay)
+                    self.performSegueWithIdentifier("RegisteredCandidateToLogin", sender: nil)
+                    
                          });
-                //self.performSegueWithIdentifier("RegisteredCandidateToLogin", sender: self)
+                
                 }
+                
+                
+                
                 
                 
             }
@@ -129,7 +139,7 @@ class FourthViewController: UIViewController,UIPickerViewDataSource, UIPickerVie
         let okAction = UIAlertAction(title:"OK", style: UIAlertActionStyle.Default, handler: nil)
         
         myAlert.addAction(okAction);
-        self.presentViewController(myAlert, animated: true, completion: nil)
+        presentViewController(myAlert, animated: true, completion: nil)
         
         
     }

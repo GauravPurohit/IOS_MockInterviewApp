@@ -88,12 +88,7 @@
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UserName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tp7-1a-Fpx">
                                 <rect key="frame" x="76" y="212" width="224" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wEc-aZ-9Tq">
-                                <rect key="frame" x="75" y="250" width="224" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ka2-yK-ATm">
                                 <rect key="frame" x="212" y="357" width="105" height="30"/>
@@ -110,7 +105,7 @@
                                     <segue destination="ayG-Dm-xOK" kind="presentation" id="XqU-7a-opK"/>
                                 </connections>
                             </button>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="New to AchieveMentor app?" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="JvA-ne-yhF">
+                            <textView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="New to AchieveMentor app?" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JvA-ne-yhF">
                                 <rect key="frame" x="51" y="357" width="168" height="25"/>
                                 <color key="backgroundColor" red="0.79081745619999999" green="0.84487905389999995" blue="0.89588105370000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -130,6 +125,11 @@
                                     <action selector="LoginButton:" destination="u1j-zx-ZbE" eventType="touchUpInside" id="eQ5-0I-lTo"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wEc-aZ-9Tq">
+                                <rect key="frame" x="75" y="250" width="224" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.79081745617660504" green="0.84487905387526618" blue="0.89588105366492143" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -313,12 +313,12 @@
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.64999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose UserName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W6z-oU-bZl">
                                 <rect key="frame" x="75" y="243" width="224" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.64999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GQ2-pV-tLa">
                                 <rect key="frame" x="75" y="281" width="224" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
                             <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Already have an account ?" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1Yf-iU-Rvw">
                                 <rect key="frame" x="75" y="406" width="163" height="30"/>
@@ -333,7 +333,7 @@
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.64999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Retype Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rCH-s2-qfv">
                                 <rect key="frame" x="75" y="319" width="224" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bJ-Sl-3fv">
                                 <rect key="frame" x="235" y="406" width="55" height="30"/>
@@ -372,7 +372,6 @@
                                 </state>
                                 <connections>
                                     <action selector="RegisterButton:" destination="ayG-Dm-xOK" eventType="touchUpInside" id="pl8-3i-Q80"/>
-                                    <segue destination="u1j-zx-ZbE" kind="presentation" identifier="RegisteredCandidateToLogin" id="V3U-pQ-upz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -418,11 +417,12 @@
                         <outlet property="Username" destination="W6z-oU-bZl" id="6aw-Tt-kNc"/>
                         <outlet property="WelcomeTextArea" destination="scQ-hQ-rja" id="QSS-9g-la5"/>
                         <outlet property="pickerView" destination="RJZ-gS-WcV" id="vOi-Gc-HIg"/>
+                        <segue destination="u1j-zx-ZbE" kind="show" identifier="RegisteredCandidateToLogin" id="pk6-Uh-gnf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9US-p8-mYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1980.5" y="985.5"/>
+            <point key="canvasLocation" x="1980.5" y="578.5"/>
         </scene>
         <!--VideoViewController-->
         <scene sceneID="mrC-f7-V0h">
@@ -458,7 +458,7 @@
                                 <state key="normal" title="Submit recording"/>
                                 <connections>
                                     <action selector="SubmitRecording:" destination="TWT-BM-zDh" eventType="touchUpInside" id="O6W-I6-tMQ"/>
-                                    <segue destination="c5p-G1-Zd6" kind="presentation" id="u1C-A3-w1i"/>
+                                    <segue destination="W0G-Cf-MiS" kind="show" id="Kfu-fb-4fI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ts-7K-5t4">
@@ -580,14 +580,95 @@
             </objects>
             <point key="canvasLocation" x="3994.6875" y="986.09154929577448"/>
         </scene>
+        <!--VideoUploadFileViewController-->
+        <scene sceneID="cCx-dp-drj">
+            <objects>
+                <viewController title="VideoUploadFileViewController" id="W0G-Cf-MiS" customClass="VideoUploadFileViewController" customModule="abcd" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CBI-FI-t3a"/>
+                        <viewControllerLayoutGuide type="bottom" id="ROO-Zs-bs5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ORs-ty-QHO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGg-tL-8ZE">
+                                <rect key="frame" x="141" y="104" width="92" height="30"/>
+                                <state key="normal" title="Photo Library"/>
+                                <connections>
+                                    <action selector="PhotoLibraryAction:" destination="W0G-Cf-MiS" eventType="touchUpInside" id="rno-N8-Quh"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GLv-2T-cqv">
+                                <rect key="frame" x="53" y="160" width="268" height="415"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6q-gw-aDU">
+                                <rect key="frame" x="53" y="104" width="54" height="30"/>
+                                <state key="normal" title="Camera"/>
+                                <connections>
+                                    <action selector="Camera:" destination="W0G-Cf-MiS" eventType="touchUpInside" id="9bP-e3-eWh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmD-Ul-vTt">
+                                <rect key="frame" x="262" y="101" width="59" height="36"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="LogoutButton:" destination="W0G-Cf-MiS" eventType="touchUpInside" id="Exb-K6-X8d"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="w6X-7K-pwh">
+                                <rect key="frame" x="269" y="612" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QTg-iH-lf4">
+                                <rect key="frame" x="128" y="607" width="118" height="30"/>
+                                <state key="normal" title="Submit recording"/>
+                                <connections>
+                                    <action selector="SubmitRecording:" destination="W0G-Cf-MiS" eventType="touchUpInside" id="27d-eF-UPB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BmD-Ul-vTt" firstAttribute="trailing" secondItem="GLv-2T-cqv" secondAttribute="trailing" id="3RX-GH-gpG"/>
+                            <constraint firstItem="ROO-Zs-bs5" firstAttribute="top" secondItem="QTg-iH-lf4" secondAttribute="bottom" constant="30" id="5hf-Vf-UPX"/>
+                            <constraint firstItem="GLv-2T-cqv" firstAttribute="top" secondItem="BmD-Ul-vTt" secondAttribute="bottom" constant="23" id="7Gv-ph-whw"/>
+                            <constraint firstItem="BmD-Ul-vTt" firstAttribute="top" secondItem="CBI-FI-t3a" secondAttribute="bottom" constant="81" id="7u3-TA-1Zy"/>
+                            <constraint firstItem="QTg-iH-lf4" firstAttribute="centerX" secondItem="GLv-2T-cqv" secondAttribute="centerX" id="Fd4-4c-f6R"/>
+                            <constraint firstItem="PGg-tL-8ZE" firstAttribute="baseline" secondItem="BmD-Ul-vTt" secondAttribute="firstBaseline" id="Iwm-N6-qBq"/>
+                            <constraint firstItem="PGg-tL-8ZE" firstAttribute="leading" secondItem="C6q-gw-aDU" secondAttribute="trailing" constant="34" id="VOb-qm-waJ"/>
+                            <constraint firstItem="QTg-iH-lf4" firstAttribute="top" secondItem="GLv-2T-cqv" secondAttribute="bottom" constant="32" id="Y8R-nc-M6W"/>
+                            <constraint firstItem="GLv-2T-cqv" firstAttribute="top" secondItem="C6q-gw-aDU" secondAttribute="bottom" constant="26" id="a24-hS-0aN"/>
+                            <constraint firstItem="BmD-Ul-vTt" firstAttribute="leading" secondItem="PGg-tL-8ZE" secondAttribute="trailing" constant="29" id="dse-2T-1lf"/>
+                            <constraint firstItem="PGg-tL-8ZE" firstAttribute="baseline" secondItem="BmD-Ul-vTt" secondAttribute="baseline" id="eTJ-r2-REp"/>
+                            <constraint firstItem="QTg-iH-lf4" firstAttribute="centerX" secondItem="ORs-ty-QHO" secondAttribute="centerX" id="kHU-lk-MI1"/>
+                            <constraint firstItem="PGg-tL-8ZE" firstAttribute="baseline" secondItem="C6q-gw-aDU" secondAttribute="baseline" id="rel-Z8-oet"/>
+                            <constraint firstItem="PGg-tL-8ZE" firstAttribute="centerX" secondItem="GLv-2T-cqv" secondAttribute="centerX" id="x08-j9-wD9"/>
+                            <constraint firstItem="PGg-tL-8ZE" firstAttribute="baseline" secondItem="C6q-gw-aDU" secondAttribute="firstBaseline" id="xeh-5l-Cg1"/>
+                            <constraint firstItem="GLv-2T-cqv" firstAttribute="leading" secondItem="C6q-gw-aDU" secondAttribute="leading" id="xuO-xz-xYG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="FifthScreen" id="gkf-Eu-Iz5"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="Camera" destination="C6q-gw-aDU" id="1xC-7V-D0c"/>
+                        <outlet property="ImageDisplay" destination="GLv-2T-cqv" id="3ec-Nw-JUa"/>
+                        <outlet property="PhotoLibrary" destination="PGg-tL-8ZE" id="fvq-h9-fcg"/>
+                        <outlet property="myActivityIndicator" destination="w6X-7K-pwh" id="daP-o0-rA1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zox-Bw-UFr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3009.5" y="-379.5"/>
+        </scene>
     </scenes>
     <resources>
         <image name="linked_in_image (1)" width="40" height="40"/>
         <image name="terry_profile_image" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SUr-jC-q1k"/>
-        <segue reference="V3U-pQ-upz"/>
-        <segue reference="u1C-A3-w1i"/>
+        <segue reference="XqU-7a-opK"/>
+        <segue reference="hgF-xr-h2h"/>
     </inferredMetricsTieBreakers>
 </document>

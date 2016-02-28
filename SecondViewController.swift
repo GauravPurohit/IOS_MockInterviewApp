@@ -15,11 +15,22 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var WelcomeTextArea: UITextView!
     @IBOutlet weak var Username: UITextField!
     @IBOutlet weak var Password: UITextField!
+  
+   
+    override func viewWillAppear(animated: Bool)
+     {
+        
+        UITextView.self
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        
+        // Do any additional setup after loading the view, typically from a nib.
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         UITextView.self
+        self.navigationItem.setHidesBackButton(true, animated: false)
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -33,6 +44,7 @@ class SecondViewController: UIViewController {
         let userName = Username.text
         let passWord = Password.text
         
+        
        // let userNameStored = NSUserDefaults.standardUserDefaults().stringForKey("userName")
       //  let passWordStored = NSUserDefaults.standardUserDefaults().stringForKey("passWord")
         
@@ -42,7 +54,8 @@ class SecondViewController: UIViewController {
             return;
         }
         
-        let myUrl = NSURL(string: "http://localhost:8888/UserLogin.php");
+        //let myUrl = NSURL(string: "http://localhost:8888/UserLogin.php");
+        let myUrl = NSURL(string: "http://gauravpurohit.co.nf/loginRegister/UserLoginServer.php");
         let request = NSMutableURLRequest(URL: myUrl!)
         request.HTTPMethod = "POST"
         
@@ -90,7 +103,7 @@ class SecondViewController: UIViewController {
                             
                        self.performSegueWithIdentifier("LoggedInCandidateToVideoView", sender: nil)
                          
-                        }
+                        } 
                         
                     }
                     
