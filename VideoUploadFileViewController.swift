@@ -21,6 +21,10 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
     @IBOutlet weak var Camera: UIButton!
     @IBOutlet weak var ImageDisplay: UIImageView!
     var videoURL:NSURL!
+    var RecvUserName:String = ""
+    var filecount = 0;
+    //var secondViewController: SecondViewController?
+    
     
     
     @IBAction func LogoutButton(sender: AnyObject) {
@@ -113,7 +117,7 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
         request.HTTPMethod = "POST";
         
         let param = [
-            "firstName"  : "Gaurav",
+            "firstName"  : RecvUserName,
             "lastName"    : "Purohit",
             "userId"    : "1"
         ]
@@ -158,6 +162,51 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
             var err: NSError?
             do {
                 var json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as? NSDictionary
+                
+                
+                
+                if let parseJSON = json {
+                    var resultValue = parseJSON["Status"] as? String
+                    print("result\(resultValue)")
+                    
+                    var messageToDisplay:String = parseJSON["Message"] as! String!
+                    
+                    var isUserLoggedin:Bool = false;
+                    if(resultValue==("OK"))
+                    {
+                        
+                        messageToDisplay = parseJSON["Message"] as! String!
+                        dispatch_async(dispatch_get_main_queue(), {
+                        self.displayAlertMessage(messageToDisplay)
+                            });
+                        
+                        
+                        // self.dismissViewControllerAnimated(true, completion: nil)
+                        
+                    }
+                        
+                        
+                        
+                    else
+                    {
+                        messageToDisplay = parseJSON["Message"] as! String!
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.displayAlertMessage(messageToDisplay)
+                        });
+                        
+                        
+                        
+                    }
+                    
+                    
+                }
+                
+                
+                
+                
+                
+                
+                
             
             }
             catch {
@@ -184,6 +233,18 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
     }
     
     
+    func displayAlertMessage(userMessage:String)
+    {
+        var myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: UIAlertControllerStyle.Alert);
+        
+        let okAction = UIAlertAction(title:"OK", style: UIAlertActionStyle.Default, handler: nil)
+        
+        myAlert.addAction(okAction);
+        presentViewController(myAlert, animated: true, completion: nil)
+        
+    }
+
+    
     func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
         var body = NSMutableData();
         
@@ -195,7 +256,8 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
             }
         }
         
-        let filename = "user_profile.mov"
+        filecount++;
+        let filename = RecvUserName + "_" + "\(filecount)" + ".mov"
         
         //let mimetype = "image/jpeg"
         let mimetype = "video/mp4"

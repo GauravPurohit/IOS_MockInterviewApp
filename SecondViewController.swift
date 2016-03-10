@@ -148,6 +148,10 @@ class SecondViewController: UIViewController {
     }
 
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let VideoVC: VideoViewController = segue.destinationViewController as! VideoViewController
+        VideoVC.RecvUserName = Username.text!
+    }
     
     
     override func didReceiveMemoryWarning() {
