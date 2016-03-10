@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVKit
 import MediaPlayer
 import MobileCoreServices
 import AVFoundation
@@ -19,7 +20,8 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
     @IBOutlet weak var PhotoLibrary: UIButton!
     @IBOutlet weak var Camera: UIButton!
     @IBOutlet weak var ImageDisplay: UIImageView!
-   
+    var videoURL:NSURL!
+    
     
     @IBAction func LogoutButton(sender: AnyObject) {
         
@@ -47,7 +49,7 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
     @IBAction func PhotoLibraryAction(sender: UIButton) {
         let picker=UIImagePickerController()
         picker.delegate=self
-       // picker.mediaTypes = [kUTTypeMovie as String]
+        picker.mediaTypes = [kUTTypeMovie as String]
         picker.sourceType = .PhotoLibrary
         
         presentViewController(picker, animated: true, completion: nil)
@@ -67,13 +69,28 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         ImageDisplay.image = info[UIImagePickerControllerOriginalImage] as? UIImage;
-        //let tempImage = info[UIImagePickerControllerOriginalImage] as? UIImage;
+                //let tempImage = info[UIImagePickerControllerOriginalImage] as? UIImage;
         //   UIImageWriteToSavedPhotosAlbum(tempImage!, self, nil, nil)
+        let tempImage = info[UIImagePickerControllerMediaURL] as? NSURL!
+    
+        //NSLog("tempImage= ", tempImage!)
+        let pathString = tempImage!.relativePath
         
-       // let tempImage = info[UIImagePickerControllerMediaURL] as? NSURL!
-       // let pathString = tempImage!.relativePath
+        UISaveVideoAtPathToSavedPhotosAlbum(pathString!, self, nil, nil)
         
-        //UISaveVideoAtPathToSavedPhotosAlbum(pathString!, self, nil, nil)
+        self.videoURL = info[UIImagePickerControllerMediaURL] as! NSURL;
+        
+        let player = AVPlayer(URL: videoURL)
+        let playerController = AVPlayerViewController()
+        
+        playerController.player = player
+        playerController.view.frame = CGRectMake(0, 250, self.self.view.frame.size.width, 250)
+        //self.presentViewController(playerController, animated: true, completion: nil)
+        self.addChildViewController(playerController)
+        self.view.addSubview(playerController.view)
+        playerController.didMoveToParentViewController(self)
+        player.play()
+
         
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -106,14 +123,18 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         
         
-        let imageData = UIImageJPEGRepresentation(ImageDisplay.image!, 1)
-        let imageData1 = UIImagePickerControllerMediaURL as? NSData
+        //let imageData = UIImageJPEGRepresentation(ImageDisplay.image!, 1)
         
-        if(imageData==nil)  { return; }
+      //  let tempImage = UIImagePickerControllerMediaType as? UIImage
+     //   let pathString = tempImage!.relativePath
+       // NSLog("pathString= ", pathString!)
+        let videoData = NSData(contentsOfURL: videoURL)
+        
+        //   { return; }
         
         
         
-        request.HTTPBody = createBodyWithParameters(param, filePathKey: "file", imageDataKey: imageData!, boundary: boundary)
+        request.HTTPBody = createBodyWithParameters(param, filePathKey: "file", imageDataKey: videoData!, boundary: boundary)
         
         
         
@@ -174,10 +195,10 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
             }
         }
         
-        let filename = "user_profile.jpg"
+        let filename = "user_profile.mov"
         
-        let mimetype = "image/jpg"
-        //let mimetype = "video/x-msvideo"
+        //let mimetype = "image/jpeg"
+        let mimetype = "video/mp4"
         
         body.appendString("--\(boundary)\r\n")
         body.appendString("Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
