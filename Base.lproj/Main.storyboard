@@ -75,7 +75,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" editable="NO" text="CANDIDATE LOGIN " textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVC-em-IAl">
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="CANDIDATE LOGIN " textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVC-em-IAl">
                                 <rect key="frame" x="116" y="147" width="142" height="32"/>
                                 <color key="backgroundColor" red="0.71950758397257375" green="0.76869432010498195" blue="0.81509734947643975" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -85,11 +85,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
                             </textView>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.65000000000000002" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UserName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tp7-1a-Fpx">
-                                <rect key="frame" x="76" y="212" width="224" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ka2-yK-ATm">
                                 <rect key="frame" x="212" y="357" width="105" height="30"/>
                                 <constraints>
@@ -115,7 +110,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qzx-Da-8gK">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qzx-Da-8gK">
                                 <rect key="frame" x="144" y="303" width="88" height="30"/>
                                 <color key="backgroundColor" red="0.54469910484557771" green="0.58193564235873829" blue="0.61706479057591623" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Login">
@@ -125,10 +120,15 @@
                                     <action selector="LoginButton:" destination="u1j-zx-ZbE" eventType="touchUpInside" id="eQ5-0I-lTo"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.65000000000000002" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wEc-aZ-9Tq">
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wEc-aZ-9Tq">
                                 <rect key="frame" x="75" y="250" width="224" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UserName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tp7-1a-Fpx">
+                                <rect key="frame" x="76" y="212" width="224" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.79081745617660504" green="0.84487905387526618" blue="0.89588105366492143" alpha="1" colorSpace="calibratedRGB"/>
@@ -160,7 +160,7 @@
                         <outlet property="Password" destination="wEc-aZ-9Tq" id="Chb-98-LP3"/>
                         <outlet property="Username" destination="Tp7-1a-Fpx" id="RcF-hX-5eG"/>
                         <outlet property="WelcomeTextArea" destination="bVC-em-IAl" id="DRa-21-Xtl"/>
-                        <segue destination="TWT-BM-zDh" kind="show" identifier="LoggedInCandidateToVideoView" id="Ds0-cG-H8C"/>
+                        <segue destination="W0G-Cf-MiS" kind="show" identifier="LoggedInCandidateToVideoView" id="mA8-jT-BD1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eex-Kn-3hQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -436,17 +436,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yd4-Fh-ZlG">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yd4-Fh-ZlG">
                                 <rect key="frame" x="141" y="104" width="92" height="30"/>
                                 <state key="normal" title="Photo Library"/>
                                 <connections>
                                     <action selector="PhotoLibraryAction:" destination="TWT-BM-zDh" eventType="touchUpInside" id="tXt-Ae-aXM"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OhZ-mg-qci">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OhZ-mg-qci">
                                 <rect key="frame" x="53" y="160" width="268" height="415"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGh-PX-hXS">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGh-PX-hXS">
                                 <rect key="frame" x="53" y="104" width="54" height="30"/>
                                 <state key="normal" title="Camera"/>
                                 <connections>
@@ -458,17 +458,15 @@
                                 <state key="normal" title="Submit recording"/>
                                 <connections>
                                     <action selector="SubmitRecording:" destination="TWT-BM-zDh" eventType="touchUpInside" id="O6W-I6-tMQ"/>
-                                    <segue destination="W0G-Cf-MiS" kind="show" id="Kfu-fb-4fI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ts-7K-5t4">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ts-7K-5t4">
                                 <rect key="frame" x="262" y="101" width="59" height="36"/>
                                 <state key="normal" title="Logout">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="LogoutButton:" destination="TWT-BM-zDh" eventType="touchUpInside" id="esi-P5-Etj"/>
-                                    <segue destination="u1j-zx-ZbE" kind="show" identifier="VideoviewToLogin" id="hgF-xr-h2h"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -592,27 +590,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGg-tL-8ZE">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGg-tL-8ZE">
                                 <rect key="frame" x="141" y="104" width="92" height="30"/>
                                 <state key="normal" title="Photo Library"/>
                                 <connections>
                                     <action selector="PhotoLibraryAction:" destination="W0G-Cf-MiS" eventType="touchUpInside" id="rno-N8-Quh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6q-gw-aDU">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6q-gw-aDU">
                                 <rect key="frame" x="53" y="104" width="54" height="30"/>
                                 <state key="normal" title="Camera"/>
                                 <connections>
                                     <action selector="Camera:" destination="W0G-Cf-MiS" eventType="touchUpInside" id="9bP-e3-eWh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmD-Ul-vTt">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmD-Ul-vTt">
                                 <rect key="frame" x="262" y="101" width="59" height="36"/>
                                 <state key="normal" title="Logout">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="LogoutButton:" destination="W0G-Cf-MiS" eventType="touchUpInside" id="Exb-K6-X8d"/>
+                                    <segue destination="u1j-zx-ZbE" kind="show" identifier="VideoviewToLogin" id="l1p-yZ-PZn"/>
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="w6X-7K-pwh">
@@ -620,14 +619,23 @@
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QTg-iH-lf4">
                                 <rect key="frame" x="128" y="607" width="118" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="118" id="ABH-V1-Bpb"/>
+                                </constraints>
                                 <state key="normal" title="Submit recording"/>
                                 <connections>
-                                    <action selector="SubmitRecording:" destination="W0G-Cf-MiS" eventType="touchUpInside" id="27d-eF-UPB"/>
+                                    <action selector="submitRecordingTapped:" destination="W0G-Cf-MiS" eventType="touchUpInside" id="isK-gN-yUr"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GLv-2T-cqv">
-                                <rect key="frame" x="53" y="179" width="268" height="415"/>
+                                <rect key="frame" x="53" y="384" width="268" height="165"/>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="2" maximumZoomScale="2" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0OF-cQ-FAN">
+                                <rect key="frame" x="70" y="199" width="235" height="72"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -656,11 +664,13 @@
                         <outlet property="ImageDisplay" destination="GLv-2T-cqv" id="3ec-Nw-JUa"/>
                         <outlet property="PhotoLibrary" destination="PGg-tL-8ZE" id="fvq-h9-fcg"/>
                         <outlet property="myActivityIndicator" destination="w6X-7K-pwh" id="daP-o0-rA1"/>
+                        <outlet property="questionText" destination="0OF-cQ-FAN" id="FcR-3S-0Hj"/>
+                        <outlet property="submitRecording" destination="QTg-iH-lf4" id="zrn-bu-6Xg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zox-Bw-UFr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3009.5" y="-379.5"/>
+            <point key="canvasLocation" x="3243.5" y="-387.5"/>
         </scene>
     </scenes>
     <resources>
@@ -668,7 +678,7 @@
         <image name="terry_profile_image" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XW2-r5-qtR"/>
+        <segue reference="l1p-yZ-PZn"/>
         <segue reference="XqU-7a-opK"/>
     </inferredMetricsTieBreakers>
 </document>

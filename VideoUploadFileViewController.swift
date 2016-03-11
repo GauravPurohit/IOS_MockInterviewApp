@@ -20,10 +20,16 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
     @IBOutlet weak var PhotoLibrary: UIButton!
     @IBOutlet weak var Camera: UIButton!
     @IBOutlet weak var ImageDisplay: UIImageView!
+    @IBOutlet weak var submitRecording: UIButton!
     var videoURL:NSURL!
     var RecvUserName:String = ""
-    var filecount = 0;
-    //var secondViewController: SecondViewController?
+    var questioncount = 0;
+    var filecount = 1;
+    @IBOutlet weak var questionText: UITextView!
+    var text = ""
+    var questions = ["Tell me about yourself", "Why did you leave your last job", "Why do you want to work here", "What are your strengths", "What are your weaknesses", "What are your goals", "Tell me about a time when you", "What would you do if", "What is your salary requirement", "Do you have any questions for me?"]
+    
+    let playerController = AVPlayerViewController()
     
     
     
@@ -32,19 +38,37 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
         NSUserDefaults.standardUserDefaults().setBool(false, forKey: "isUserLoggedIn")
         NSUserDefaults.standardUserDefaults().synchronize()
         
-        // self.performSegueWithIdentifier("VideoviewToLogin", sender: self)
+        //self.performSegueWithIdentifier("VideoviewToLogin", sender: self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.submitRecording.enabled = false
         self.navigationItem.setHidesBackButton(true, animated: false)
-        // Do any additional setup after loading the view, typically from a nib.
+        text += "\(questions[questioncount])"
+        questionText.text = text
+        questionText.font = questionText.font?.fontWithSize(20)
+        questioncount++
+       
+        
     }
     
-    
-    @IBAction func SubmitRecording(sender: AnyObject) {
-        myImageUploadRequest()
+    @IBAction func submitRecordingTapped(sender: AnyObject) {
+        
+        self.submitRecording.enabled = false
+        
+        playerController.view.removeFromSuperview()
+        
+        if questioncount<10 {
+            text = "\(questions[questioncount])"
+            questionText.text = text
+            questionText.font = questionText.font?.fontWithSize(20)
+            myImageUploadRequest()
+            
+        }
+        
     }
+    
     
     @IBAction func WelcomeButton(sender: AnyObject) {
     }
@@ -65,14 +89,16 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
         picker.delegate=self
         picker.mediaTypes = [kUTTypeMovie as String]
         picker.sourceType = .Camera
+        //picker.showsCameraControls = false
+        picker.cameraDevice = UIImagePickerControllerCameraDevice.Front
         
-        presentViewController(picker, animated: true, completion: nil)
+            presentViewController(picker, animated: true, completion: nil)
         
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
-        ImageDisplay.image = info[UIImagePickerControllerOriginalImage] as? UIImage;
+       // ImageDisplay.image = info[UIImagePickerControllerOriginalImage] as? UIImage;
                 //let tempImage = info[UIImagePickerControllerOriginalImage] as? UIImage;
         //   UIImageWriteToSavedPhotosAlbum(tempImage!, self, nil, nil)
         let tempImage = info[UIImagePickerControllerMediaURL] as? NSURL!
@@ -85,10 +111,9 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
         self.videoURL = info[UIImagePickerControllerMediaURL] as! NSURL;
         
         let player = AVPlayer(URL: videoURL)
-        let playerController = AVPlayerViewController()
         
         playerController.player = player
-        playerController.view.frame = CGRectMake(0, 250, self.self.view.frame.size.width, 250)
+        playerController.view.frame = CGRectMake(0, 260, self.self.view.frame.size.width, 250)
         //self.presentViewController(playerController, animated: true, completion: nil)
         self.addChildViewController(playerController)
         self.view.addSubview(playerController.view)
@@ -96,7 +121,9 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
         player.play()
 
         
-        dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
+        self.submitRecording.enabled = true
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -109,6 +136,7 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
     
     func myImageUploadRequest()
     {
+        
         
         let myUrl = NSURL(string: "http://gauravpurohit.co.nf/loginRegister/FileServer.php");
         
@@ -229,6 +257,7 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
         }
         
         task.resume()
+        //self.submitRecording.enabled  = true
         
     }
     
@@ -241,6 +270,7 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
         
         myAlert.addAction(okAction);
         presentViewController(myAlert, animated: true, completion: nil)
+        self.submitRecording.enabled  = false
         
     }
 
@@ -256,8 +286,9 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
             }
         }
         
-        filecount++;
+        questioncount++
         let filename = RecvUserName + "_" + "\(filecount)" + ".mov"
+        filecount++
         
         //let mimetype = "image/jpeg"
         let mimetype = "video/mp4"

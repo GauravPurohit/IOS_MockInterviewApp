@@ -149,8 +149,10 @@ class SecondViewController: UIViewController {
 
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let VideoVC: VideoViewController = segue.destinationViewController as! VideoViewController
+        if (segue.identifier == "LoggedInCandidateToVideoView") {
+        let VideoVC: VideoUploadFileViewController = segue.destinationViewController as! VideoUploadFileViewController
         VideoVC.RecvUserName = Username.text!
+        }
     }
     
     
