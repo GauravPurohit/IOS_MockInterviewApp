@@ -23,6 +23,7 @@ class SecondViewController: UIViewController {
         UITextView.self
         self.navigationItem.setHidesBackButton(true, animated: false)
         
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     

@@ -47,7 +47,7 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
         self.navigationItem.setHidesBackButton(true, animated: false)
         text += "\(questions[questioncount])"
         questionText.text = text
-        questionText.font = questionText.font?.fontWithSize(20)
+        questionText.font = questionText.font?.fontWithSize(23)
         questioncount++
        
         
@@ -244,7 +244,7 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
             
             dispatch_async(dispatch_get_main_queue(),{
                 self.myActivityIndicator.stopAnimating()
-                self.ImageDisplay.image = nil;
+                //self.ImageDisplay.image = nil;
             });
             
             /*

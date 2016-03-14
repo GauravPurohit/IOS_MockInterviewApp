@@ -32,6 +32,8 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>New item</key>
+			<string></string>
 			<key>http://127.0.0.1:8888</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
