@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="5VA-DC-ywO">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
@@ -57,28 +58,28 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.75664893617021278" colorSpace="calibratedWhite"/>
                             </imageView>
+                            <textView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="center" scrollEnabled="NO" editable="NO" text="OR" selectable="NO" id="0xb-qF-Kiu">
+                                <rect key="frame" x="170" y="397" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
+                            </textView>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" id="wEc-aZ-9Tq">
-                                <rect key="frame" x="60" y="329" width="256" height="50"/>
+                                <rect key="frame" x="60" y="265" width="256" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
-                            <textView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="center" scrollEnabled="NO" editable="NO" text="Login or Create Your New Account" selectable="NO" id="bVC-em-IAl">
-                                <rect key="frame" x="50" y="206" width="276" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
-                            </textView>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UserName" textAlignment="natural" minimumFontSize="17" id="Tp7-1a-Fpx">
-                                <rect key="frame" x="60" y="262" width="256" height="50"/>
+                                <rect key="frame" x="60" y="207" width="256" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qzx-Da-8gK">
-                                <rect key="frame" x="60" y="408" width="120" height="39"/>
+                                <rect key="frame" x="127" y="336" width="120" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -96,7 +97,7 @@
                                 </connections>
                             </button>
                             <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ka2-yK-ATm">
-                                <rect key="frame" x="196" y="408" width="120" height="39"/>
+                                <rect key="frame" x="128" y="432" width="120" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -115,6 +116,13 @@
                                     <segue destination="ayG-Dm-xOK" kind="modal" id="XqU-7a-opK"/>
                                 </connections>
                             </button>
+                            <textView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="center" scrollEnabled="NO" editable="NO" text="Login or Create Your New Account" selectable="NO" id="bVC-em-IAl">
+                                <rect key="frame" x="50" y="152" width="276" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.79081745617660504" green="0.84487905387526618" blue="0.89588105366492143" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -168,13 +176,13 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
                             </textView>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UserName" textAlignment="natural" minimumFontSize="17" id="XHn-N2-2O3">
-                                <rect key="frame" x="75" y="212" width="224" height="30"/>
+                                <rect key="frame" x="75" y="212" width="224" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" id="ucS-hQ-IWO">
-                                <rect key="frame" x="75" y="250" width="224" height="30"/>
+                                <rect key="frame" x="75" y="250" width="224" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -235,74 +243,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="REGISTRATION" textAlignment="center" selectable="NO" id="scQ-hQ-rja">
-                                <rect key="frame" x="116" y="149" width="142" height="32"/>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chicago" id="TSC-MJ-IwE">
+                                <rect key="frame" x="-1" y="0.0" width="376" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.71950758400000003" green="0.76869432010000005" blue="0.81509734950000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
-                            </textView>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.64999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose UserName" textAlignment="natural" minimumFontSize="17" id="W6z-oU-bZl">
-                                <rect key="frame" x="75" y="243" width="224" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.75664893619999996" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose UserName" textAlignment="natural" minimumFontSize="17" id="W6z-oU-bZl">
+                                <rect key="frame" x="59" y="173" width="256" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.64999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose Password" textAlignment="natural" minimumFontSize="17" id="GQ2-pV-tLa">
-                                <rect key="frame" x="75" y="281" width="224" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
-                            </textField>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Already have an account ?" textAlignment="center" id="1Yf-iU-Rvw">
-                                <rect key="frame" x="75" y="406" width="163" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.79081745619999999" green="0.84487905389999995" blue="0.89588105370000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.64999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Retype Password" textAlignment="natural" minimumFontSize="17" id="rCH-s2-qfv">
-                                <rect key="frame" x="75" y="319" width="224" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0bJ-Sl-3fv">
-                                <rect key="frame" x="235" y="406" width="55" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Sign In">
-                                    <color key="titleColor" red="0.89588105370000004" green="0.20093109840000001" blue="0.2182170387" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="SignInButton:" destination="ayG-Dm-xOK" eventType="touchUpInside" id="pOL-6S-GoW"/>
-                                    <segue destination="u1j-zx-ZbE" kind="modal" id="9nJ-Ow-ttO"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.64999997615814198" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="(Select One Option)" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="Uue-7L-zKG">
-                                <rect key="frame" x="75" y="205" width="224" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <pickerView contentMode="scaleToFill" id="RJZ-gS-WcV">
-                                <rect key="frame" x="116" y="478" width="152" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="IiL-Zn-bQt" id="wLT-Kd-KbV"/>
-                                    <outlet property="delegate" destination="IiL-Zn-bQt" id="fdo-Wd-Y4U"/>
-                                </connections>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="76y-wQ-k88">
-                                <rect key="frame" x="142" y="368" width="91" height="30"/>
+                                <rect key="frame" x="127" y="355" width="120" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.54469910479999994" green="0.58193564239999995" blue="0.61706479059999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Register">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="RegisterButton:" destination="ayG-Dm-xOK" eventType="touchUpInside" id="pl8-3i-Q80"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose Password" textAlignment="natural" minimumFontSize="17" id="GQ2-pV-tLa">
+                                <rect key="frame" x="59" y="231" width="256" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Retype Password" textAlignment="natural" minimumFontSize="17" id="rCH-s2-qfv">
+                                <rect key="frame" x="59" y="289" width="256" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                            </textField>
+                            <textView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="center" scrollEnabled="NO" editable="NO" text="Register for a new account " selectable="NO" id="jXn-QM-VIf">
+                                <rect key="frame" x="86" y="128" width="218" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
+                            </textView>
+                            <textView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="center" scrollEnabled="NO" editable="NO" text="OR" selectable="NO" id="ohX-pd-Rl5">
+                                <rect key="frame" x="169" y="421" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0bJ-Sl-3fv">
+                                <rect key="frame" x="127" y="457" width="120" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Sign In">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="SignInButton:" destination="ayG-Dm-xOK" eventType="touchUpInside" id="pOL-6S-GoW"/>
+                                    <segue destination="u1j-zx-ZbE" kind="modal" id="9nJ-Ow-ttO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -315,16 +327,13 @@
                     <connections>
                         <outlet property="Password" destination="GQ2-pV-tLa" id="qS9-ip-qDx"/>
                         <outlet property="RePassword" destination="rCH-s2-qfv" id="z7R-gt-bYO"/>
-                        <outlet property="UIPickerTextField" destination="Uue-7L-zKG" id="ezu-Db-pVj"/>
                         <outlet property="Username" destination="W6z-oU-bZl" id="6aw-Tt-kNc"/>
-                        <outlet property="WelcomeTextArea" destination="scQ-hQ-rja" id="QSS-9g-la5"/>
-                        <outlet property="pickerView" destination="RJZ-gS-WcV" id="vOi-Gc-HIg"/>
                         <segue destination="u1j-zx-ZbE" kind="modal" identifier="RegisteredCandidateToLogin" id="pk6-Uh-gnf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9US-p8-mYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056.2666666666667" y="547.64666666666665"/>
+            <point key="canvasLocation" x="1055.5" y="547.5"/>
         </scene>
         <!--VideoViewController-->
         <scene sceneID="mrC-f7-V0h">
@@ -530,6 +539,28 @@
                                     <segue destination="u1j-zx-ZbE" kind="modal" identifier="VideoviewToLogin" id="l1p-yZ-PZn"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="28E-7C-WPO">
+                                <rect key="frame" x="123" y="427" width="128" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Test">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="submitTest:" destination="W0G-Cf-MiS" eventType="touchUpInside" id="j4W-EE-Vc8"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" id="U7C-os-8vA">
+                                <rect key="frame" x="109" y="524" width="156" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -537,11 +568,12 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="Camera" destination="C6q-gw-aDU" id="1xC-7V-D0c"/>
-                        <outlet property="ImageDisplay" destination="GLv-2T-cqv" id="3ec-Nw-JUa"/>
                         <outlet property="PhotoLibrary" destination="PGg-tL-8ZE" id="fvq-h9-fcg"/>
                         <outlet property="myActivityIndicator" destination="w6X-7K-pwh" id="daP-o0-rA1"/>
+                        <outlet property="progressBar" destination="U7C-os-8vA" id="8jO-EA-UFb"/>
                         <outlet property="questionText" destination="0OF-cQ-FAN" id="FcR-3S-0Hj"/>
                         <outlet property="submitRecording" destination="QTg-iH-lf4" id="zrn-bu-6Xg"/>
+                        <outlet property="submitTest" destination="28E-7C-WPO" id="EYu-4g-Tvr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zox-Bw-UFr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -556,7 +588,7 @@
         <image name="wood" width="236" height="354"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="l1p-yZ-PZn"/>
         <segue reference="XqU-7a-opK"/>
+        <segue reference="pk6-Uh-gnf"/>
     </inferredMetricsTieBreakers>
 </document>

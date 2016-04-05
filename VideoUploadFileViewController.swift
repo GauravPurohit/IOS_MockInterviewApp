@@ -12,15 +12,18 @@ import MediaPlayer
 import MobileCoreServices
 import AVFoundation
 
-class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
+class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate,DownloadManagerProtocol {
     
     
-    
+    @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var myActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var PhotoLibrary: UIButton!
     @IBOutlet weak var Camera: UIButton!
     @IBOutlet weak var ImageDisplay: UIImageView!
     @IBOutlet weak var submitRecording: UIButton!
+    @IBOutlet weak var submitTest: UIButton!
+    var progressController: ProgressController!
+    
     var videoURL:NSURL!
     var RecvUserName:String = ""
     var questioncount = 0;
@@ -43,6 +46,9 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        progressController = ProgressController()
+        progressController.progressBar = self.progressBar
         self.submitRecording.enabled = false
         self.navigationItem.setHidesBackButton(true, animated: false)
         text += "\(questions[questioncount])"
@@ -57,6 +63,7 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
         
         self.submitRecording.enabled = false
         
+        playerController.player = nil
         playerController.view.removeFromSuperview()
         
         if questioncount<10 {
@@ -68,6 +75,12 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
         }
         
     }
+    
+    @IBAction func submitTest(sender: AnyObject) {
+      // myImageDownloadRequest()
+        downloadFile()
+    }
+    
     
     
     @IBAction func WelcomeButton(sender: AnyObject) {
@@ -138,7 +151,8 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
     {
         
         
-        let myUrl = NSURL(string: "http://gauravpurohit.co.nf/loginRegister/FileServer.php");
+         let myUrl = NSURL(string: "http://gauravpurohit.co.nf/loginRegister/FileServer.php");
+       // let myUrl = NSURL(string: "http://localhost:8888/FileServer.php");
         
         
         let request = NSMutableURLRequest(URL:myUrl!);
@@ -262,6 +276,102 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
     }
     
     
+    
+    func downloadFile()
+    {
+        
+        let url = "https://s3.amazonaws.com/gpuro/try/umesh_1.mp4"
+        
+        DownloadManager(delegate: self).downloadFileForUrl(url)
+        
+    }
+    
+    func downloadedFileAtPath(path: NSURL)
+    {
+        
+        let temp = path.relativePath
+        UISaveVideoAtPathToSavedPhotosAlbum(temp!, self, nil, nil)
+
+    }
+    
+    
+    func downloadedMbytesFromTotal(downloaded: Int64, total: Int64)
+    {
+        progressController.setProgressDownload(downloaded, total: total)
+    }
+    
+    override func prefersStatusBarHidden() -> Bool
+    {
+        return true
+    }
+    
+    func myImageDownloadRequest()
+    {
+        
+        let myUrl = NSURL(string: "https://s3.amazonaws.com/gpuro/try/umesh_1.mp4")
+         let tryUrl = "https://s3.amazonaws.com/gpuro/try/umesh_1.mp4"
+        //let myUrl = NSURL(string: "http://gauravpurohit.co.nf/loginRegister/FileServer.php");
+        
+        
+        let request = NSMutableURLRequest(URL:myUrl!);
+        request.HTTPMethod = "POST";
+        
+        let param = [
+            "firstName"  : RecvUserName,
+            "lastName"    : "Purohit",
+            "userId"    : "1"
+        ]
+        
+        let boundary = generateBoundaryString()
+        
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
+        
+        //let imageData = UIImageJPEGRepresentation(ImageDisplay.image!, 1)
+        
+        //  let tempImage = UIImagePickerControllerMediaType as? UIImage
+        //   let pathString = tempImage!.relativePath
+        // NSLog("pathString= ", pathString!)
+       // let videoData = NSData(contentsOfURL: videoURL)
+        
+        //   { return; }
+        
+        
+        
+       // request.HTTPBody = createBodyWithParameters(param, filePathKey: "file", imageDataKey: videoData!, boundary: boundary)
+        
+        
+        
+        myActivityIndicator.startAnimating();
+        
+        let download = NSURLSession.sharedSession().downloadTaskWithURL(NSURL(string: tryUrl)!)
+        
+        let task = NSURLSession.sharedSession().downloadTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+            
+            // You can print out response object
+            print("******* response = \(response)")
+            
+            // Print out reponse body
+           // let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            
+        }
+        
+        task.resume()
+        UISaveVideoAtPathToSavedPhotosAlbum(myUrl!.relativePath!, self, nil, nil)
+        //self.submitRecording.enabled  = true
+        
+    }
+
+    
+    
+    
+    
     func displayAlertMessage(userMessage:String)
     {
         var myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: UIAlertControllerStyle.Alert);
@@ -287,7 +397,7 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
         }
         
         questioncount++
-        let filename = RecvUserName + "_" + "\(filecount)" + ".mov"
+        let filename = RecvUserName + "_" + "\(filecount)" + ".mp4"
         filecount++
         
         //let mimetype = "image/jpeg"
