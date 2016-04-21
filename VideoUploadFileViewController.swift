@@ -11,8 +11,9 @@ import AVKit
 import MediaPlayer
 import MobileCoreServices
 import AVFoundation
+import SafariServices
 
-class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate,DownloadManagerProtocol {
+class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate,DownloadManagerProtocol,SFSafariViewControllerDelegate {
     
     
     @IBOutlet weak var progressBar: UIProgressView!
@@ -31,7 +32,7 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
     @IBOutlet weak var questionText: UITextView!
     var text = ""
     var questions = ["Tell me about yourself", "Why did you leave your last job", "Why do you want to work here", "What are your strengths", "What are your weaknesses", "What are your goals", "Tell me about a time when you", "What would you do if", "What is your salary requirement", "Do you have any questions for me?"]
-    
+    var urlString:String = "https://s3.amazonaws.com/gpuro/"
     let playerController = AVPlayerViewController()
     
     
@@ -59,12 +60,28 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
         
     }
     
+    
+    @available(iOS 9.0, *)
+    @IBAction func feedBack(sender: AnyObject) {
+        urlString=urlString+RecvUserName+"/feedback/input001.txt"
+        let svc = SFSafariViewController(URL: NSURL(string: self.urlString)!,entersReaderIfAvailable: true)
+        svc.delegate = self
+        self.presentViewController(svc, animated: true, completion: nil)
+    }
+    
+    @available(iOS 9.0, *)
+    func safariViewControllerDidFinish(controller: SFSafariViewController)
+    {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     @IBAction func submitRecordingTapped(sender: AnyObject) {
         
         self.submitRecording.enabled = false
         
         playerController.player = nil
         playerController.view.removeFromSuperview()
+        
         
         if questioncount<10 {
             text = "\(questions[questioncount])"
@@ -132,7 +149,6 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
         self.view.addSubview(playerController.view)
         playerController.didMoveToParentViewController(self)
         player.play()
-
         
         self.dismissViewControllerAnimated(true, completion: nil)
         self.submitRecording.enabled = true
@@ -151,12 +167,16 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
     {
         
         
-         let myUrl = NSURL(string: "http://gauravpurohit.co.nf/loginRegister/FileServer.php");
-       // let myUrl = NSURL(string: "http://localhost:8888/FileServer.php");
+         //let myUrl = NSURL(string: "http://gauravpurohit.co.nf/loginRegister/FileServer.php");
+         //let myUrl = NSURL(string: "http://10.123.223.201:8888/FileServer.php");
+        let myUrl = NSURL(string: "http://10.1.206.86:8888/FileServer.php");
+
         
         
         let request = NSMutableURLRequest(URL:myUrl!);
         request.HTTPMethod = "POST";
+        
+        //request.timeoutInterval = 120
         
         let param = [
             "firstName"  : RecvUserName,

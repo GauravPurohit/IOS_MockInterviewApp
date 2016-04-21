@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="5VA-DC-ywO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="5VA-DC-ywO">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--FirstScreen-->
@@ -134,7 +134,7 @@
                         <outlet property="Password" destination="wEc-aZ-9Tq" id="Chb-98-LP3"/>
                         <outlet property="Username" destination="Tp7-1a-Fpx" id="RcF-hX-5eG"/>
                         <outlet property="WelcomeTextArea" destination="bVC-em-IAl" id="DRa-21-Xtl"/>
-                        <segue destination="W0G-Cf-MiS" kind="modal" identifier="LoggedInCandidateToVideoView" id="mA8-jT-BD1"/>
+                        <segue destination="DX5-Sa-k8R" kind="modal" identifier="LoggedInCandidateToInterview" id="3UY-sQ-riP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eex-Kn-3hQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -394,7 +394,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J5H-ec-Gm6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1475.5" y="-352.5"/>
+            <point key="canvasLocation" x="1755.5" y="556.5"/>
         </scene>
         <!--TryVideoController-->
         <scene sceneID="enM-0i-Xc3">
@@ -578,7 +578,86 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zox-Bw-UFr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1911.5" y="-364.5"/>
+            <point key="canvasLocation" x="2041.5" y="-352.5"/>
+        </scene>
+        <!--FifthScreen-->
+        <scene sceneID="TWp-NF-lSY">
+            <objects>
+                <viewController id="DX5-Sa-k8R" customClass="SecViewController" customModule="abcd" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vhl-aS-mPb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wood" id="xza-rt-PkL">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Eqn-py-Rbz">
+                                <rect key="frame" x="123" y="216" width="128" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title=" Start interview!">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="goToInterviewSession:" destination="DX5-Sa-k8R" eventType="touchUpInside" id="yp0-3n-nae"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DNz-Ce-Vdi">
+                                <rect key="frame" x="123" y="305" width="128" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Get feedback">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="feedBack:" destination="DX5-Sa-k8R" eventType="touchUpInside" id="I3E-47-gjm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BQc-cE-cMg">
+                                <rect key="frame" x="158" y="106" width="59" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="LogoutButton:" destination="DX5-Sa-k8R" eventType="touchUpInside" id="lzb-ji-hLv"/>
+                                    <segue destination="u1j-zx-ZbE" kind="modal" id="bHY-wL-0YP"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" minimumZoomScale="2" maximumZoomScale="2" editable="NO" textAlignment="center" id="KYT-78-Xrn">
+                                <rect key="frame" x="70" y="199" width="235" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="FifthScreen" id="Mmu-Da-Q8S"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="W0G-Cf-MiS" kind="modal" identifier="LoggedInCandidateToVideoView" id="pPZ-Vu-pAU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QQX-2d-mqe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1486.5" y="-329.5"/>
         </scene>
     </scenes>
     <resources>
@@ -588,7 +667,7 @@
         <image name="wood" width="236" height="354"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="bHY-wL-0YP"/>
         <segue reference="XqU-7a-opK"/>
-        <segue reference="pk6-Uh-gnf"/>
     </inferredMetricsTieBreakers>
 </document>

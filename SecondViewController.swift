@@ -104,7 +104,7 @@ class SecondViewController: UIViewController,UITextFieldDelegate {
                     
                         NSOperationQueue.mainQueue().addOperationWithBlock {
                             
-                       self.performSegueWithIdentifier("LoggedInCandidateToVideoView", sender: nil)
+                       self.performSegueWithIdentifier("LoggedInCandidateToInterview", sender: nil)
                          
                         } 
                         
@@ -152,8 +152,8 @@ class SecondViewController: UIViewController,UITextFieldDelegate {
 
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "LoggedInCandidateToVideoView") {
-        let VideoVC: VideoUploadFileViewController = segue.destinationViewController as! VideoUploadFileViewController
+        if (segue.identifier == "LoggedInCandidateToInterview") {
+        let VideoVC: SecViewController = segue.destinationViewController as! SecViewController
         VideoVC.RecvUserName = Username.text!
         }
     }
