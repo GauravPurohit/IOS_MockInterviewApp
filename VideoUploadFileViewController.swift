@@ -167,9 +167,8 @@ class VideoUploadFileViewController: UIViewController, UIImagePickerControllerDe
     {
         
         
-         //let myUrl = NSURL(string: "http://gauravpurohit.co.nf/loginRegister/FileServer.php");
-         //let myUrl = NSURL(string: "http://10.123.223.201:8888/FileServer.php");
-        let myUrl = NSURL(string: "http://10.0.0.16:8888/FileServer.php");
+         
+        let myUrl = NSURL(string: "http://your_url_here/FileServer.php");
 
         
         
